@@ -1,0 +1,37 @@
+import React, { useContext, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import  './index.css';
+import { GlobalContext } from '../../context/GobalContext';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    '& > *': {
+      margin: theme.spacing(2),
+      // width: theme.spacing(25),
+      height: theme.spacing(16),
+    },
+  },
+}));
+
+export default function Cards() {
+  const classes = useStyles();
+const {transactions} = useContext(GlobalContext);
+const ammm = transactions.map((i)=>i.am);
+const pam = ammm.filter(i=>i>0).reduce((acc,i)=> (acc += i*1),0);
+const nam = ammm.filter(i=>i<0).reduce((acc,i)=>(acc += i*1),0);
+
+
+
+
+  return (<div className="Cards">
+    <div className={classes.root}>
+
+
+
+      <Paper variant="outlined" className="Income"><br/>INCOME  <br/> <span style={{fontSize:"30px",color:"rgb(11, 151, 11)"}}>${pam}</span></Paper>
+      <Paper variant="outlined" className="Expenses"><br/>EXPENSES <br/><span style={{fontSize:"30px",color:"rgb(218, 46, 33"}}> ${nam}</span></Paper>
+    </div></div>
+  );
+}
