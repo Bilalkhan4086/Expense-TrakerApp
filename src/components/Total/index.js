@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './index.css';
 import { GlobalContext } from '../../context/GobalContext'
 export const Total = () => {

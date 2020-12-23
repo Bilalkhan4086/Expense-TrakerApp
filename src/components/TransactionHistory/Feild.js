@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import './index.css';
 import bin from '../../bin.svg'
 export const Feild = ({data,id,RemTrans}) => {
